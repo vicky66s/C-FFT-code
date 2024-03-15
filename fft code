@@ -1,0 +1,37 @@
+using System;
+using System.Numerics;
+
+class Program
+{
+    static void Main()
+    {
+        // Generate some random input signal
+        double[] signal = new double[1024];
+        Random rand = new Random();
+        for (int i = 0; i < signal.Length; i++)
+        {
+            signal[i] = rand.NextDouble();
+        }
+
+        // Apply FFT to the signal
+        Complex[] fftResult = FFT(signal);
+
+        // Example usage: print the first few elements of the FFT result
+        for (int i = 0; i < Math.Min(10, fftResult.Length); i++)
+        {
+            Console.WriteLine("FFT Result[" + i + "]: " + fftResult[i]);
+        }
+    }
+
+    static Complex[] FFT(double[] signal)
+    {
+        // Perform FFT (assuming you have your own implementation or using a library)
+        // Here we're just returning the input signal as complex numbers for simplicity
+        Complex[] complexSignal = new Complex[signal.Length];
+        for (int i = 0; i < signal.Length; i++)
+        {
+            complexSignal[i] = new Complex(signal[i], 0);
+        }
+        return complexSignal;
+    }
+}
